@@ -1,0 +1,117 @@
+.focus {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  box-shadow: var(--shadow-xs);
+  position: relative;
+  overflow: hidden;
+}
+.focus::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 60%, var(--accent-50) 100%);
+  pointer-events: none;
+}
+.focus__body {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+.focus__eyebrow {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-700);
+  margin-bottom: var(--space-2);
+}
+.focus__title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--neutral-900);
+  margin-bottom: var(--space-3);
+}
+.focus__text {
+  font-size: var(--font-size-base);
+  color: var(--text-muted);
+  max-width: 56ch;
+  line-height: 1.6;
+}
+.focus__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.focus__buttons {
+  display: flex;
+  gap: var(--space-2);
+}
+.focus__btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), border-color var(--transition);
+}
+.focus__btn:hover {
+  background: var(--neutral-100);
+  border-color: var(--border-strong);
+}
+.focus__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.focus__indicators {
+  display: flex;
+  gap: var(--space-2);
+}
+.focus__indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--neutral-300);
+  transition: background var(--transition), width var(--transition);
+}
+.focus__indicator--active {
+  background: var(--primary);
+  width: 22px;
+  border-radius: var(--radius-pill);
+}
+
+@media (max-width: 768px) {
+  .focus {
+    padding: var(--space-6);
+    gap: var(--space-5);
+  }
+  .focus__title {
+    font-size: var(--font-size-lg);
+  }
+}
+@media (max-width: 480px) {
+  .focus {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .focus__nav {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

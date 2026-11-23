@@ -1,0 +1,83 @@
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.stat-card:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+.stat-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.stat-card__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stat-card__icon--total {
+  background: var(--primary-50);
+  color: var(--primary-600);
+}
+.stat-card__icon--progress {
+  background: var(--warning-50);
+  color: var(--warning-700);
+}
+.stat-card__icon--completed {
+  background: var(--success-50);
+  color: var(--success-700);
+}
+.stat-card__icon--percent {
+  background: var(--secondary-50);
+  color: var(--secondary-700);
+}
+.stat-card__label {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.stat-card__value {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--neutral-900);
+  line-height: 1;
+}
+.stat-card__bar {
+  height: 6px;
+  background: var(--neutral-100);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+.stat-card__bar-fill {
+  height: 100%;
+  background: var(--secondary-500);
+  border-radius: var(--radius-pill);
+  transition: width 400ms ease;
+}
+
+@media (max-width: 1100px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,82 @@
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+.filters__tabs {
+  display: flex;
+  gap: var(--space-1);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+}
+.filters__tab {
+  border: none;
+  background: transparent;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: background var(--transition), color var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.filters__tab:hover {
+  color: var(--text);
+}
+.filters__tab--active {
+  background: var(--primary);
+  color: #fff;
+}
+.filters__tab-count {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 1px 7px;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-xs);
+}
+.filters__tab--active .filters__tab-count {
+  background: rgba(255, 255, 255, 0.3);
+}
+.filters__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.filters__select {
+  padding: 9px 32px 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")
+    no-repeat right 10px center;
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: var(--font-size-sm);
+  color: var(--text);
+  cursor: pointer;
+}
+.filters__select:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--primary-50);
+}
+
+@media (max-width: 560px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filters__tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filters__right {
+    justify-content: space-between;
+  }
+}

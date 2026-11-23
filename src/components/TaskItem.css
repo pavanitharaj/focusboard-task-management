@@ -1,0 +1,118 @@
+.task {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5) var(--space-6);
+  display: grid;
+  grid-template-columns: 4px 1fr auto;
+  gap: var(--space-5);
+  align-items: center;
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+}
+.task:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--border-strong);
+}
+.task__accent {
+  width: 4px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  align-self: center;
+}
+.task__accent--low {
+  background: var(--secondary-500);
+}
+.task__accent--medium {
+  background: var(--warning-500);
+}
+.task__accent--high {
+  background: var(--error-500);
+}
+.task__main {
+  min-width: 0;
+}
+.task__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.task__title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--neutral-900);
+  margin: 0;
+}
+.task__title--done {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+.task__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+.task__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.task__category {
+  text-transform: capitalize;
+  font-weight: 600;
+  color: var(--neutral-600);
+}
+.task__desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin-top: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.task__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.task__status-select {
+  padding: 7px 26px 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")
+    no-repeat right 8px center;
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+}
+.task__status-select:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--primary-50);
+}
+
+@media (max-width: 720px) {
+  .task {
+    grid-template-columns: 4px 1fr;
+    row-gap: var(--space-3);
+  }
+  .task__actions {
+    grid-column: 2;
+    justify-content: flex-end;
+  }
+}
+@media (max-width: 420px) {
+  .task__status-select {
+    flex: 1;
+  }
+}
